@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Status - Phostine Logistic</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #F3E5F5;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .success {
+            color: #2E0052;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2E0052;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #2E0052 0%, #5A189A 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="success">✓</div>
+        <h1>Payment Successful!</h1>
+        <p>Thank you for choosing PHOSTINE LOGISTIC. Your delivery payment has been received and confirmed.</p>
+        <p><strong>Transaction ID:</strong> <span id="txId">Loading...</span></p>
+        <a href="https://phostinelogistics.com" class="btn">Back to Home</a>
+    </div>
+    <script>
+        // Get transaction ID from URL
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('txId').textContent = params.get('transaction_id') || 'N/A';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,3315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHOSTINE LOGISTIC - Premium Dispatch & Logistics Services</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #FF00FF;
+            --secondary: #663399;
+            --accent: #1a936f;
+            --light: #f8f9fa;
+            --dark: #69727d;
+            --gradient: linear-gradient(135deg, #F4C430 0%, #F4C430 100%);
+        }
+
+        body {
+            background: #fff;
+            color: #69727d;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.05)
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-15px)
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade {
+            animation: fadeInUp 0.8s ease forwards
+        }
+
+        .animate-slide {
+            animation: slideInLeft 0.8s ease forwards
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 6%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        header.scrolled {
+            padding: 10px 6%;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-quote {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-quote:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+            padding: 8px;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero>p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 50px 0;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 15px 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: 20%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 20%;
+            right: 5%;
+            animation-delay: 1.5s;
+        }
+
+        .floating-card i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .floating-card p {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        section {
+            padding: 100px 6%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-header h2 span {
+            color: var(--primary);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .about {
+            background: var(--light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+        }
+
+        .about-img-main {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-img-float {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 200px;
+            border-radius: 15px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content h3 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-content>p {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .feature-item p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #fff5f0 0%, #fff 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient);
+            color: white;
+            transform: rotateY(360deg);
+        }
+
+        .service-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 10px;
+        }
+
+        .process {
+            background: linear-gradient(rgba(26, 26, 46, 0.92), rgba(26, 26, 46, 0.88)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .process .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process .section-header h2 {
+            color: white;
+        }
+
+        .process .section-header p {
+            color: #aaa;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            z-index: 0;
+        }
+
+        .process-card {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .process-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #bbb;
+            font-size: 15px;
+        }
+
+        .tracking {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .tracking-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tracking-box {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .tracking-input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tracking-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .tracking-input:focus {
+            border-color: var(--primary);
+        }
+
+        .tracking-btn {
+            padding: 18px 40px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tracking-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .tracking-result {
+            display: none;
+            background: #f0fff4;
+            border-left: 5px solid var(--accent);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .tracking-result.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .tracking-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .status-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .tracking-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-dot.active {
+            background: var(--accent);
+        }
+
+        .timeline-dot.current {
+            background: var(--primary);
+            box-shadow: 0 0 0 5px rgba(255, 107, 53, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-item p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .booking-info {
+            padding-right: 40px;
+        }
+
+        .booking-info h3 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .booking-info>p {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .contact-cards {
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .contact-card:hover h4,
+        .contact-card:hover p {
+            color: white;
+        }
+
+        .contact-card i {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-card h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .contact-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .booking-form {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        /* ===== DYNAMIC PRICING IN FORM ===== */
+        .pricing-section-form {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        .price-breakdown-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .price-row-form {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #dee2e6;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .price-row-form.total {
+            border-bottom: none;
+            border-top: 2px solid var(--primary);
+            margin-top: 8px;
+            padding-top: 15px;
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        /* ===== SUCCESS MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease-out;
+            overflow: hidden;
+        }
+
+        .modal-header-success {
+            background: linear-gradient(135deg, #1a936f 0%, #2ecc71 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .modal-header-success i {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
+            animation: scaleIn 0.5s ease 0.2s both;
+        }
+
+        .modal-header-success h3 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .modal-body-success {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .tracking-display-box {
+            background: #f8f9fa;
+            border: 2px dashed var(--primary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .tracking-display-box label {
+            display: block;
+            font-weight: 700;
+            color: #495057;
+            margin-bottom: 12px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .tracking-id-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            word-break: break-all;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .amount-display-box {
+            background: #fff5f0;
+            border: 2px solid #ffe0d0;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .amount-display-box label {
+            display: block;
+            font-weight: 700;
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .amount-text {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .copy-id-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-id-btn:hover {
+            background: #d900d9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+        }
+
+        .copy-id-btn.copied {
+            background: #1a936f;
+        }
+
+        .modal-note {
+            color: #6c757d;
+            font-size: 14px;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .modal-footer-btns {
+            display: flex;
+            gap: 12px;
+            padding: 0 30px 30px;
+        }
+
+        .btn-modal-close {
+            flex: 1;
+            padding: 14px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-modal-close:hover {
+            background: #5a6268;
+        }
+
+        .btn-modal-pay {
+            flex: 1;
+            padding: 14px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-modal-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing {
+            background: var(--light);
+            padding: 100px 6%;
+        }
+
+        .pricing-search {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box {
+            position: relative;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 18px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 18px 25px 18px 55px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: var(--dark);
+        }
+
+        .search-box input::placeholder {
+            color: #aaa;
+        }
+
+        .pricing-dropdowns {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pricing-dropdown {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .pricing-dropdown:hover {
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .dropdown-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+            user-select: none;
+        }
+
+        .dropdown-header:hover {
+            background: #fafafa;
+        }
+
+        .dropdown-title {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .dropdown-title i {
+            width: 55px;
+            height: 55px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .dropdown-title h3 {
+            color: var(--dark);
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .dropdown-title span {
+            color: #999;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .dropdown-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .price-range {
+            background: #f0f8ff;
+            color: #FF00FF;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .dropdown-arrow {
+            color: #999;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .pricing-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .pricing-dropdown.active .dropdown-header {
+            background: #fff8f5;
+            border-bottom: 1px solid #ffe0d0;
+        }
+
+        .dropdown-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+
+        .pricing-dropdown.active .dropdown-body {
+            max-height: 2000px;
+        }
+
+        .dropdown-body .pricing-note {
+            margin: 20px 30px 15px;
+        }
+
+        .pricing-table {
+            padding: 0 30px 25px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f5f5f5;
+            transition: all 0.3s;
+            border-radius: 10px;
+        }
+
+        .price-row:hover {
+            background: #fff8f5;
+            padding-left: 25px;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-row.highlight {
+            background: linear-gradient(90deg, #fff5f0 0%, #fff 100%);
+            border-left: 3px solid var(--primary);
+        }
+
+        .location-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 15px;
+        }
+
+        .location-name i {
+            color: var(--primary);
+            font-size: 12px;
+        }
+
+        .base-badge {
+            background: var(--primary);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+        .price-tag {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .price-tag.popular {
+            background: linear-gradient(135deg, #1a936f 0%, #2ecc71 100%);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .no-results i {
+            font-size: 40px;
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        .pricing-extras {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .extra-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .extra-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .extra-card i {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+
+        .extra-card h4 {
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .extra-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .testimonials {
+            background: var(--light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 80px;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-stars {
+            color: #ffc107;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .testimonial-text {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--dark);
+            font-size: 16px;
+        }
+
+        .author-info p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 17px;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 30px 25px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact {
+            background: #2A0A2E;
+            color: white;
+        }
+
+        .contact .section-header h2 {
+            color: white;
+        }
+
+        .contact .section-header p {
+            color: #aaa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-form-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form-wrapper h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 30px;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-detail-item i {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-detail-item h4 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .contact-detail-item p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            background: #2A0A2E;
+            color: #aaa;
+            padding: 60px 6% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-newsletter input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .footer-newsletter input::placeholder {
+            color: #777;
+        }
+
+        .footer-newsletter button {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            z-index: 999;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-btn i {
+            font-size: 24px;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 998;
+            border: none;
+            font-size: 20px;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media(max-width:1024px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid::before {
+                display: none;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .header-right {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .btn-quote {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            nav {
+                display: flex;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 6%;
+                gap: 0;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+
+            nav.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: all;
+            }
+
+            nav a {
+                width: 100%;
+                padding: 14px 0;
+                border-bottom: 1px solid #eee;
+                font-size: 16px;
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-grid,
+            .booking-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .tracking-input-group {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .pricing-extras {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:480px) {
+            .logo {
+                font-size: 18px;
+            }
+
+            .btn-quote {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .mobile-menu {
+                font-size: 22px;
+            }
+
+            .pricing-extras {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn-pay-now {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-pay-now::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-pay-now:active::after {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+    <base target="_blank">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="Phostine Logistic Logo" class="logo-img">
+        </a>
+        <nav id="mainNav">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#process">How It Works</a>
+            <a href="#tracking">Tracking</a>
+            <a href="#booking">Booking</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-right">
+            <a href="#booking" class="btn-quote">Get Quote</a>
+            <div class="mobile-menu" id="mobileToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="floating-card floating-card-1"><i class="fas fa-clock"></i>
+            <p>24/7 Support</p>
+        </div>
+        <div class="floating-card floating-card-2"><i class="fas fa-shield-alt"></i>
+            <p>Insured Delivery</p>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-star"></i> Nigeria's Trusted Logistics Partner</div>
+            <h1>Fast, Safe & <span>Reliable</span> Delivery</h1>
+            <p>Professional dispatch and logistics services across Lagos and all 36 states in Nigeria.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">15K+</div>
+                    <div class="stat-label">Deliveries Made</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2hrs</div>
+                    <div class="stat-label">Avg. Delivery Time</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Book Dispatch Now</a>
+                <a href="#tracking" class="btn btn-secondary"><i class="fas fa-search-location"></i> Track Shipment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <h2>About <span>PHOSTINE LOGISTIC</span></h2>
+            <p>Your trusted partner for seamless logistics and dispatch services across Nigeria</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-images">
+                <img src="img/1014.jpg" alt="Our Fleet" class="about-img-main">
+                <img src="img/phos.png" alt="Delivery" class="about-img-float">
+            </div>
+            <div class="about-content">
+                <h3>Delivering Excellence Since 2020</h3>
+                <p>PHOSTINE LOGISTIC is a premium dispatch and logistics company dedicated to helping individuals, SMEs,
+                    vendors, and corporations move packages safely, quickly, and affordably across Nigeria.</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <h4>Lightning Fast</h4>
+                            <p>Same-day delivery within Lagos</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div>
+                            <h4>Nationwide Coverage</h4>
+                            <p>All 36 states + FCT</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                        <div>
+                            <h4>Secure Handling</h4>
+                            <p>Insured and tracked deliveries</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <div>
+                            <h4>24/7 Support</h4>
+                            <p>Always here to help you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="section-header">
+            <h2>Our <span>Services</span></h2>
+            <p>Comprehensive logistics solutions tailored to your needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shipping-fast"></i></div>
+                <h3>Same-Day Delivery</h3>
+                <p>Express intra-city dispatch within Lagos. Your package delivered within 2-6 hours with real-time
+                    tracking.</p><a href="#booking" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-truck-moving"></i></div>
+                <h3>Interstate Delivery</h3>
+                <p>Nationwide parcel movement to all 36 states. Reliable next-day and 2-3 day delivery options
+                    available.</p><a href="#booking" class="service-link">Book Now <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Food Delivery</h3>
+                <p>Specialized temperature-controlled delivery for restaurants, caterers, and food vendors across Lagos.
+                </p><a href="#booking" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-building"></i></div>
+                <h3>Corporate Logistics</h3>
+                <p>End-to-end business delivery and fulfillment solutions. Bulk shipments, warehousing, and
+                    distribution.</p><a href="#booking" class="service-link">Book Now <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shopping-bag"></i></div>
+                <h3>E-Commerce Fulfillment</h3>
+                <p>Complete order fulfillment for online stores. Pick, pack, and ship directly to your customers.</p><a
+                    href="#booking" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-box-open"></i></div>
+                <h3>Document & Parcel</h3>
+                <p>Secure handling of sensitive documents, legal papers, and small parcels with signature confirmation.
+                </p><a href="#booking" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <h2>How It <span>Works</span></h2>
+            <p>Simple 4-step process to get your package delivered</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <h3>Book Online</h3>
+                <p>Fill our simple booking form with pickup and delivery details. Get instant quote.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <h3>We Pick Up</h3>
+                <p>Our verified rider arrives at your location. Package is scanned and secured.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <h3>Live Tracking</h3>
+                <p>Track your shipment in real-time via SMS, WhatsApp, or our tracking portal.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">4</div>
+                <h3>Delivered!</h3>
+                <p>Safe handover with photo confirmation and digital signature.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRACKING -->
+    <section class="tracking" id="tracking">
+        <div class="section-header">
+            <h2>Track Your <span>Shipment</span></h2>
+            <p>Enter your tracking ID to see real-time location and delivery status</p>
+        </div>
+        <div class="tracking-container">
+            <div class="tracking-box">
+                <div class="tracking-input-group">
+                    <input type="text" id="trackingId" class="tracking-input"
+                        placeholder="Enter Tracking ID (e.g., PHO-2026-001234)">
+                    <button class="tracking-btn" onclick="trackShipment()"><i class="fas fa-search"></i> Track
+                        Now</button>
+                </div>
+                <p style="color:#999;font-size:13px;margin-top:10px;"><i class="fas fa-info-circle"></i> Try demo IDs:
+                    <strong>PHO-2026-001234</strong> or <strong>PHO-2026-005678</strong>
+                </p>
+                <div class="tracking-result" id="trackingResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="booking">
+        <div class="section-header">
+            <h2>Book <span>Dispatch</span></h2>
+            <p>Fill the form below and we'll handle the rest</p>
+        </div>
+        <div class="booking-grid">
+            <div class="booking-info">
+                <h3>Why Choose PHOSTINE?</h3>
+                <p>We combine speed, safety, and affordability to give you the best logistics experience in Nigeria.</p>
+                <div class="contact-cards">
+                    <div class="contact-card"><i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>0704 416 9589<br>0701 616 4140</p>
+                        </div>
+                    </div>
+                    <div class="contact-card"><i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>phostinelogistic@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card"><i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sat: 7:00 AM - 9:00 PM<br>Sun: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="booking-form" id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="form-row">
+                    <div class="form-group"><label>Sender Name *</label><input type="text" id="senderName"
+                            placeholder="Your full name" required></div>
+                    <div class="form-group"><label>Sender Phone *</label><input type="tel" id="senderPhone"
+                            placeholder="080 XXXX XXXX" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Receiver Name *</label><input type="text" id="receiverName"
+                            placeholder="Receiver's full name" required></div>
+                    <div class="form-group"><label>Receiver Phone *</label><input type="tel" id="receiverPhone"
+                            placeholder="080 XXXX XXXX" required></div>
+                </div>
+                <div class="form-group"><label>Pickup Address *</label><input type="text" id="pickupAddress"
+                        placeholder="Full pickup address with landmark" required></div>
+                <div class="form-group"><label>Delivery Address *</label><input type="text" id="deliveryAddress"
+                        placeholder="Full delivery address with landmark" required></div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Package Type</label>
+                        <select id="packageType" onchange="calculatePrice()">
+                            <option value="document">Document</option>
+                            <option value="small">Small Parcel</option>
+                            <option value="medium">Medium Parcel</option>
+                            <option value="large">Large Parcel</option>
+                            <option value="food">Food/Perishable</option>
+                            <option value="fragile">Fragile Item</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <select id="serviceType" onchange="calculatePrice()">
+                            <option value="same_day_lagos">Same-Day (Lagos)</option>
+                            <option value="express">Express (2-4 hrs)</option>
+                            <option value="interstate_next">Interstate (Next Day)</option>
+                            <option value="interstate_2_3">Interstate (2-3 Days)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Pickup Location *</label>
+                        <select id="pickupLocation" onchange="calculatePrice()" required>
+                            <option value="">Select Pickup Location</option>
+                            <optgroup label="Lagos Island">
+                                <option value="orchid">Orchid Road (Lekki) - Base</option>
+                                <option value="eleganza">Eleganza</option>
+                                <option value="chevron">Chevron</option>
+                                <option value="agungi">Agungi</option>
+                                <option value="vgc">VGC</option>
+                                <option value="ikota">Ikota</option>
+                                <option value="ajah">Ajah</option>
+                                <option value="osapa">Osapa London</option>
+                                <option value="jakande">Jakande</option>
+                                <option value="sangotedo">Sangotedo</option>
+                                <option value="vi">Victoria Island</option>
+                                <option value="ikoyi">Ikoyi</option>
+                                <option value="lekki">Lekki Phase 1</option>
+                                <option value="awoyaya">Awoyaya</option>
+                                <option value="lakowe">Lakowe</option>
+                                <option value="epe">Epe</option>
+                            </optgroup>
+                            <optgroup label="Lagos Mainland">
+                                <option value="yaba">Yaba</option>
+                                <option value="surulere">Surulere</option>
+                                <option value="ojuelegba">Ojuelegba</option>
+                                <option value="mushin">Mushin</option>
+                                <option value="oshodi">Oshodi</option>
+                                <option value="ikeja">Ikeja</option>
+                                <option value="gbagada">Gbagada</option>
+                                <option value="maryland">Maryland</option>
+                                <option value="ojota">Ojota</option>
+                                <option value="ketu">Ketu</option>
+                                <option value="mile12">Mile 12</option>
+                                <option value="agege">Agege</option>
+                                <option value="iyana_ipaja">Iyana Ipaja</option>
+                                <option value="egbeda">Egbeda</option>
+                                <option value="ikotun">Ikotun</option>
+                                <option value="festac">Festac</option>
+                                <option value="amuwo">Amuwo Odofin</option>
+                                <option value="berger">Berger</option>
+                            </optgroup>
+                            <optgroup label="Other States">
+                                <option value="abuja">Abuja</option>
+                                <option value="ibadan">Ibadan</option>
+                                <option value="ph">Port Harcourt</option>
+                                <option value="kano">Kano</option>
+                                <option value="benin">Benin</option>
+                                <option value="enugu">Enugu</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Location *</label>
+                        <select id="deliveryLocation" onchange="calculatePrice()" required>
+                            <option value="">Select Delivery Location</option>
+                            <optgroup label="Lagos Island">
+                                <option value="orchid">Orchid Road (Lekki) - Base</option>
+                                <option value="eleganza">Eleganza</option>
+                                <option value="chevron">Chevron</option>
+                                <option value="agungi">Agungi</option>
+                                <option value="vgc">VGC</option>
+                                <option value="ikota">Ikota</option>
+                                <option value="ajah">Ajah</option>
+                                <option value="osapa">Osapa London</option>
+                                <option value="jakande">Jakande</option>
+                                <option value="sangotedo">Sangotedo</option>
+                                <option value="vi">Victoria Island</option>
+                                <option value="ikoyi">Ikoyi</option>
+                                <option value="lekki">Lekki Phase 1</option>
+                                <option value="awoyaya">Awoyaya</option>
+                                <option value="lakowe">Lakowe</option>
+                                <option value="epe">Epe</option>
+                            </optgroup>
+                            <optgroup label="Lagos Mainland">
+                                <option value="yaba">Yaba</option>
+                                <option value="surulere">Surulere</option>
+                                <option value="ojuelegba">Ojuelegba</option>
+                                <option value="mushin">Mushin</option>
+                                <option value="oshodi">Oshodi</option>
+                                <option value="ikeja">Ikeja</option>
+                                <option value="gbagada">Gbagada</option>
+                                <option value="maryland">Maryland</option>
+                                <option value="ojota">Ojota</option>
+                                <option value="ketu">Ketu</option>
+                                <option value="mile12">Mile 12</option>
+                                <option value="agege">Agege</option>
+                                <option value="iyana_ipaja">Iyana Ipaja</option>
+                                <option value="egbeda">Egbeda</option>
+                                <option value="ikotun">Ikotun</option>
+                                <option value="festac">Festac</option>
+                                <option value="amuwo">Amuwo Odofin</option>
+                                <option value="berger">Berger</option>
+                            </optgroup>
+                            <optgroup label="Other States">
+                                <option value="abuja">Abuja</option>
+                                <option value="ibadan">Ibadan</option>
+                                <option value="ph">Port Harcourt</option>
+                                <option value="kano">Kano</option>
+                                <option value="benin">Benin</option>
+                                <option value="enugu">Enugu</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Special Instructions</label>
+                    <textarea id="specialInstructions" rows="3"
+                        placeholder="Any special handling instructions..."></textarea>
+                </div>
+                <!-- Dynamic Pricing Display -->
+                <div class="pricing-section-form" id="pricingSection" style="display: none;">
+                    <div class="price-breakdown-form">
+                        <div class="price-row-form"><span>Base Price (Package):</span><span id="basePrice">₦0</span>
+                        </div>
+                        <div class="price-row-form"><span>Location Fee:</span><span id="locationFee">₦0</span></div>
+                        <div class="price-row-form"><span>Service Fee:</span><span id="serviceFee">₦0</span></div>
+                        <div class="price-row-form total"><span><strong>Total Amount to Pay:</strong></span><span
+                                id="totalAmount"><strong>₦0</strong></span></div>
+                    </div>
+                    <input type="hidden" id="calculatedPrice" value="0">
+                </div>
+                <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Submit Booking &
+                    Pay</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Success Modal with Tracking ID -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <div class="modal-header-success">
+                <i class="fas fa-check-circle"></i>
+                <h3>Booking Successful!</h3>
+            </div>
+            <div class="modal-body-success">
+                <p>Your dispatch has been booked successfully.</p>
+                <div class="tracking-display-box">
+                    <label>Your Tracking ID:</label>
+                    <div class="tracking-id-text" id="trackingIdDisplay"></div>
+                    <button onclick="copyTrackingId()" class="copy-id-btn"><i class="fas fa-copy"></i> Copy ID</button>
+                </div>
+                <div class="amount-display-box">
+                    <label>Amount to Pay:</label>
+                    <div class="amount-text" id="modalAmount"></div>
+                </div>
+                <p class="modal-note">Save this tracking ID to monitor your delivery status.</p>
+            </div>
+            <div class="modal-footer-btns">
+                <button onclick="closeModal()" class="btn-modal-close">Close</button>
+                <button onclick="payNowFromModal()" class="btn-modal-pay"><i class="fas fa-lock"></i> Pay Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Transparent <span>Pricing</span></h2>
+            <p>Affordable delivery rates across Lagos. No hidden charges.</p>
+        </div>
+        <div class="pricing-search">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="priceSearch" placeholder="Search your location (e.g., Lekki, Ikeja, Yaba...)"
+                    onkeyup="filterPrices()">
+            </div>
+        </div>
+        <div class="pricing-dropdowns">
+            <div class="pricing-dropdown" id="islandDropdown">
+                <div class="dropdown-header" onclick="toggleDropdown('island')">
+                    <div class="dropdown-title">
+                        <i class="fas fa-water"></i>
+                        <div>
+                            <h3>Island Locations</h3><span>28 delivery zones</span>
+                        </div>
+                    </div>
+                    <div class="dropdown-meta">
+                        <span class="price-range">₦2,500 — ₦12,000</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </div>
+                </div>
+                <div class="dropdown-body" id="islandBody">
+                    <div class="pricing-note"><i class="fas fa-info-circle"></i><span>Base location: <strong>Orchid
+                                Road, Lekki</strong>. Prices are for single package delivery up to 5kg.</span></div>
+                    <div class="pricing-table" id="islandTable"></div>
+                </div>
+            </div>
+            <div class="pricing-dropdown" id="mainlandDropdown">
+                <div class="dropdown-header" onclick="toggleDropdown('mainland')">
+                    <div class="dropdown-title">
+                        <i class="fas fa-city"></i>
+                        <div>
+                            <h3>Mainland Locations</h3><span>47 delivery zones</span>
+                        </div>
+                    </div>
+                    <div class="dropdown-meta">
+                        <span class="price-range">₦4,500 — ₦7,000</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </div>
+                </div>
+                <div class="dropdown-body" id="mainlandBody">
+                    <div class="pricing-note"><i class="fas fa-info-circle"></i><span>Base location: <strong>Orchid
+                                Road, Lekki</strong>. Prices are for single package delivery up to 5kg.</span></div>
+                    <div class="pricing-table" id="mainlandTable"></div>
+                </div>
+            </div>
+        </div>
+        <div class="pay-now-section"
+            style="text-align: center; margin-top: 50px; padding: 40px 20px; background: linear-gradient(135deg, #fff5f0 0%, #fff 100%); border-radius: 20px; border: 2px dashed var(--primary);">
+            <i class="fas fa-credit-card" style="font-size: 48px; color: var(--primary); margin-bottom: 15px;"></i>
+            <h3 style="color: var(--dark); font-size: 24px; margin-bottom: 10px;">Ready to Pay for Your Delivery?</h3>
+            <p
+                style="color: #666; font-size: 16px; margin-bottom: 25px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                Secure online payment via Flutterwave. Pay with Card, Bank Transfer, USSD, or Mobile Money.</p>
+            <button onclick="makePayment()" class="btn-pay-now"
+                style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 18px 60px; border: none; border-radius: 50px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(255,107,53,0.4); text-transform: uppercase; letter-spacing: 1px;"
+                onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(255,107,53,0.5)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(255,107,53,0.4)';"><i
+                    class="fas fa-lock"></i> PAY NOW</button>
+            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <span style="color: #999; font-size: 13px;"><i class="fas fa-shield-alt" style="color: #2A0A2E;"></i>
+                    Secure Payment</span>
+                <span style="color: #999; font-size: 13px;"><i class="fas fa-bolt" style="color: var(--primary);"></i>
+                    Instant Confirmation</span>
+                <span style="color: #999; font-size: 13px;"><i class="fas fa-undo" style="color: #2A0A2E;"></i> Refund
+                    Policy</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>What Our <span>Clients Say</span></h2>
+            <p>Real feedback from real customers</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testimonial-text">"PHOSTINE LOGISTIC has transformed how I run my online boutique. Same-day
+                    delivery means happier customers and more repeat orders. Absolutely reliable!"</p>
+                <div class="testimonial-author"><img src="img/lad.jfif" alt="Ada" class="author-img">
+                    <div class="author-info">
+                        <h4>Adaobi Nwosu</h4>
+                        <p>Fashion Vendor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testimonial-text">"I've tried many logistics companies, but PHOSTINE stands out. Their riders
+                    are professional, packages arrive intact, and tracking is accurate. Best in Lagos!"</p>
+                <div class="testimonial-author"><img src="img/man.jfif" alt="Tunde" class="author-img">
+                    <div class="author-info">
+                        <h4>Tunde Ola</h4>
+                        <p>Social Media Influencer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p class="testimonial-text">"Affordable, fast, and trustworthy. I send documents to Abuja weekly and
+                    they never disappoint. The corporate plan saves me money too!"</p>
+                <div class="testimonial-author"><img src="img/lady.jfif" alt="Chioma" class="author-img">
+                    <div class="author-info">
+                        <h4>Chioma Eze</h4>
+                        <p>Legal Practitioner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked <span>Questions</span></h2>
+            <p>Got questions? We've got answers</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item active">
+                <div class="faq-question" onclick="toggleFaq(this)">How fast is your delivery within Lagos?<i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>Our same-day delivery service within Lagos typically takes 2-6 hours depending on traffic and
+                        distance. For express delivery, we guarantee delivery within 2-4 hours for an additional fee.
+                        Interstate deliveries to major cities like Abuja, Port Harcourt, and Ibadan are next-day, while
+                        other states take 2-3 business days.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Do you deliver to all states in Nigeria?<i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>Yes! We deliver to all 36 states and the FCT. Our network covers major cities with next-day
+                        delivery and extends to remote areas within 2-5 business days. We partner with local agents in
+                        each state to ensure reliable last-mile delivery.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Is my package insured?<i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>All packages are covered by our basic liability protection. For high-value items, we offer
+                        additional insurance up to ₦500,000. Corporate clients enjoy full insurance coverage as part of
+                        their contract. Please declare the value of your item when booking.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Can I pay on delivery?<i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>Yes, we offer Cash on Delivery (COD) for Lagos deliveries. For interstate deliveries, we require
+                        a 50% deposit with the balance paid on delivery. We also accept bank transfers, USSD, and card
+                        payments through Paystack.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">How do I track my shipment?<i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>You can track your shipment in three ways: (1) Use our online tracking tool on this website, (2)
+                        Send your tracking ID via WhatsApp to our support line, or (3) Call our 24/7 helpline. You'll
+                        receive SMS updates at every stage of the delivery.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">What items do you NOT deliver?<i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>For safety and legal reasons, we do not deliver: illegal substances, weapons, explosives,
+                        perishable foods without proper packaging, live animals, and hazardous materials. If you're
+                        unsure about an item, please contact us before booking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2>Get In <span>Touch</span></h2>
+            <p>We're here to help. Reach out anytime.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-form-wrapper">
+                <h3>Send Us a Message</h3>
+                <form onsubmit="submitContact(event)">
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+                        <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+                    </div>
+                    <div class="form-group"><input type="text" placeholder="Subject" required></div>
+                    <div class="form-group"><textarea rows="4" placeholder="Your message..." required></textarea></div>
+                    <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+            <div class="contact-details">
+                <div class="contact-detail-item"><i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Office Address</h4>
+                        <p>12B, Ogunlana Drive,<br>Surulere, Lagos, Nigeria<br>(Main office opening soon)</p>
+                    </div>
+                </div>
+                <div class="contact-detail-item"><i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Phone Numbers</h4>
+                        <p>0704 416 9589<br>0701 616 4140<br>Mon-Sat: 7AM - 9PM</p>
+                    </div>
+                </div>
+                <div class="contact-detail-item"><i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p>phostinelogistic@gmail.com<br>support@phostinelogistic.com</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/2347044169589"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.1!2d3.3!3d6.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDAuMCJOIDPCsDE4JzAwLjAiRQ!5e0!3m2!1sen!2sng!4v1"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3><i class="fas fa-shipping-fast"></i> PHOSTINE LOGISTIC</h3>
+                <p>Your trusted partner for fast, safe, and reliable logistics services across Nigeria. We deliver
+                    happiness, one package at a time.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Same-Day Delivery</a></li>
+                    <li><a href="#">Interstate Delivery</a></li>
+                    <li><a href="#">Food Delivery</a></li>
+                    <li><a href="#">Corporate Logistics</a></li>
+                    <li><a href="#">E-Commerce Fulfillment</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p style="margin-bottom:15px;color:#aaa;font-size:14px;">Subscribe for updates and exclusive offers.</p>
+                <input type="email" placeholder="Your email address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 PHOSTINE LOGISTIC. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color:var(--primary);"></i> in Lagos, Nigeria</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/2347044169589" class="whatsapp-btn" target="_blank"><i
+                class="fab fa-whatsapp"></i><span>Chat with Us</span></a>
+    </div>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+            const scrollBtn = document.getElementById('scrollTop');
+            if (window.scrollY > 500) { scrollBtn.classList.add('show'); }
+            else { scrollBtn.classList.remove('show'); }
+        });
+
+        // ============================================
+        // PRICING DATA (from your existing pricing page)
+        // ============================================
+        const islandPrices = [
+            { location: 'Orchid Road (Lekki)', price: 2500, base: true },
+            { location: 'Eleganza', price: 2500 },
+            { location: 'Chevron', price: 3000 },
+            { location: 'Igbo Efon', price: 3000 },
+            { location: 'Agungi', price: 3000 },
+            { location: 'VGC', price: 3000 },
+            { location: 'Ikota', price: 3000 },
+            { location: 'Ilaje', price: 3000 },
+            { location: 'Ajah', price: 3000 },
+            { location: 'Osapa London', price: 3500 },
+            { location: 'Jakande', price: 3500 },
+            { location: 'Orchid — ELF', price: 3850 },
+            { location: 'Orchid — Chisco', price: 3850 },
+            { location: 'Orchid — Salem', price: 3850 },
+            { location: 'Orchid — Ikate', price: 3800 },
+            { location: 'Orchid — Marwa', price: 4000 },
+            { location: 'Orchid — Lekki', price: 4000 },
+            { location: 'Sangotedo', price: 4000 },
+            { location: 'VI', price: 4200 },
+            { location: 'Ikoyi', price: 4500 },
+            { location: 'Abijo', price: 4850 },
+            { location: 'Majek', price: 5000 },
+            { location: 'LBS', price: 5500 },
+            { location: 'Awoyaya', price: 5850 },
+            { location: 'Lakowe', price: 6500 },
+            { location: 'After Lakowe', price: 8500 },
+            { location: 'Dangote', price: 9500 },
+            { location: 'Epe', price: 12000 }
+        ];
+
+        const mainlandPrices = [
+            { location: 'Ojuelegba', price: 4900 },
+            { location: 'Bariga', price: 4700 },
+            { location: 'Onikan / Lagos Island', price: 4500 },
+            { location: 'Surulere', price: 4500 },
+            { location: 'Orile', price: 4850 },
+            { location: 'Mushin', price: 5000 },
+            { location: 'Idi-Araba', price: 5000 },
+            { location: 'Ijesha', price: 5000 },
+            { location: 'Oshodi', price: 5000 },
+            { location: 'Cele', price: 5500 },
+            { location: 'Isolo', price: 5500 },
+            { location: 'Jibowu', price: 5500 },
+            { location: 'Maryland', price: 5500 },
+            { location: 'Ebutte Metta', price: 5500 },
+            { location: 'Oworonshoki', price: 5500 },
+            { location: 'Shogunle', price: 5500 },
+            { location: 'Ikeja', price: 5500 },
+            { location: 'Gbagada', price: 5500 },
+            { location: 'Palmgroove', price: 5550 },
+            { location: 'Fadeyi', price: 5550 },
+            { location: 'Apapa', price: 5550 },
+            { location: 'Yaba', price: 5750 },
+            { location: 'Ilasamaja', price: 5750 },
+            { location: 'Shomolu', price: 5700 },
+            { location: 'Ilupeju', price: 5700 },
+            { location: 'Ijora', price: 5700 },
+            { location: 'Ojota', price: 6000 },
+            { location: 'Dopemu', price: 6000 },
+            { location: 'Onipanu', price: 6000 },
+            { location: 'Abule Egba', price: 6000 },
+            { location: 'Igando', price: 6000 },
+            { location: 'Constain', price: 5850 },
+            { location: 'Ladipo Toyota', price: 5850 },
+            { location: 'Cele Okota', price: 6850 },
+            { location: 'Festac', price: 6850 },
+            { location: 'Ago Palace', price: 6850 },
+            { location: 'Amuwo Odofin', price: 6850 },
+            { location: 'Satellite Town', price: 6850 },
+            { location: 'Iyana Iba', price: 5950 },
+            { location: 'Ejigbo', price: 5950 },
+            { location: 'Ogba', price: 6500 },
+            { location: 'Iyana Ipaja', price: 6500 },
+            { location: 'Ayobo', price: 6500 },
+            { location: 'Ketu', price: 6500 },
+            { location: 'Egbeda', price: 6500 },
+            { location: 'Ikotun', price: 6550 },
+            { location: 'Agege', price: 6800 },
+            { location: 'Mile 12', price: 6900 },
+            { location: 'Berger', price: 7000 }
+        ];
+
+        function renderTable(data, containerId) {
+            const container = document.getElementById(containerId);
+            if (data.length === 0) {
+                container.innerHTML = '<div class="no-results"><i class="fas fa-search-location"></i><p>No locations found. Try a different search term.</p></div>';
+                return;
+            }
+            container.innerHTML = data.map(item => `
+                <div class="price-row ${item.base ? 'highlight' : ''}">
+                    <div class="location-name"><i class="fas fa-map-marker-alt"></i>${item.location}${item.base ? '<span class="base-badge">BASE</span>' : ''}</div>
+                    <div class="price-tag ${item.price <= 3000 ? 'popular' : ''}">₦${item.price.toLocaleString()}</div>
+                </div>
+            `).join('');
+        }
+
+        renderTable(islandPrices, 'islandTable');
+        renderTable(mainlandPrices, 'mainlandTable');
+
+        function toggleDropdown(region) {
+            const dropdown = document.getElementById(region + 'Dropdown');
+            const isActive = dropdown.classList.contains('active');
+            document.querySelectorAll('.pricing-dropdown').forEach(d => d.classList.remove('active'));
+            if (!isActive) { dropdown.classList.add('active'); }
+        }
+
+        function filterPrices() {
+            const query = document.getElementById('priceSearch').value.toLowerCase().trim();
+            const islandFiltered = islandPrices.filter(item => item.location.toLowerCase().includes(query));
+            const mainlandFiltered = mainlandPrices.filter(item => item.location.toLowerCase().includes(query));
+            renderTable(islandFiltered, 'islandTable');
+            renderTable(mainlandFiltered, 'mainlandTable');
+            const islandDropdown = document.getElementById('islandDropdown');
+            const mainlandDropdown = document.getElementById('mainlandDropdown');
+            if (query !== '') {
+                if (islandFiltered.length > 0) islandDropdown.classList.add('active');
+                else islandDropdown.classList.remove('active');
+                if (mainlandFiltered.length > 0) mainlandDropdown.classList.add('active');
+                else mainlandDropdown.classList.remove('active');
+            } else {
+                islandDropdown.classList.remove('active');
+                mainlandDropdown.classList.remove('active');
+            }
+        }
+
+        // Mobile Menu
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mainNav = document.getElementById('mainNav');
+            const navLinks = mainNav.querySelectorAll('a');
+            mobileToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                mainNav.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (mainNav.classList.contains('active')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+                else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+            });
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mainNav.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (!mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    mainNav.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(faq => { faq.classList.remove('active'); });
+            if (!isActive) { item.classList.add('active'); }
+        }
+
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        // Active nav on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) { current = section.getAttribute('id'); }
+            });
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+            });
+        });
+
+        function submitContact(e) {
+            e.preventDefault();
+            alert('Message sent! We will get back to you within 24 hours.');
+            e.target.reset();
+        }
+
+        // ============================================
+        // PRICING ENGINE FOR BOOKING FORM
+        // ============================================
+        const pricingEngine = {
+            basePrices: {
+                document: 500,
+                small: 1000,
+                medium: 2000,
+                large: 3500,
+                food: 2500,
+                fragile: 3000
+            },
+            serviceMultipliers: {
+                same_day_lagos: 1.0,
+                express: 1.5,
+                interstate_next: 1.3,
+                interstate_2_3: 1.0
+            },
+            locationFees: {
+                orchid: 2500, eleganza: 2500, chevron: 3000, agungi: 3000,
+                vgc: 3000, ikota: 3000, ajah: 3000, osapa: 3500,
+                jakande: 3500, sangotedo: 4000, vi: 4200, ikoyi: 4500,
+                lekki: 4000, awoyaya: 5850, lakowe: 6500, epe: 12000,
+                yaba: 5750, surulere: 4500, ojuelegba: 4900, mushin: 5000,
+                oshodi: 5000, ikeja: 5500, gbagada: 5500, maryland: 5500,
+                ojota: 6000, ketu: 6500, mile12: 6900, agege: 6800,
+                iyana_ipaja: 6500, egbeda: 6500, ikotun: 6550, festac: 6850,
+                amuwo: 6850, berger: 7000,
+                abuja: 15000, ibadan: 8000, ph: 12000, kano: 18000,
+                benin: 10000, enugu: 11000
+            },
+            locationNames: {
+                orchid: 'Orchid Road (Lekki)', eleganza: 'Eleganza', chevron: 'Chevron',
+                agungi: 'Agungi', vgc: 'VGC', ikota: 'Ikota', ajah: 'Ajah',
+                osapa: 'Osapa London', jakande: 'Jakande', sangotedo: 'Sangotedo',
+                vi: 'Victoria Island', ikoyi: 'Ikoyi', lekki: 'Lekki Phase 1',
+                awoyaya: 'Awoyaya', lakowe: 'Lakowe', epe: 'Epe',
+                yaba: 'Yaba', surulere: 'Surulere', ojuelegba: 'Ojuelegba',
+                mushin: 'Mushin', oshodi: 'Oshodi', ikeja: 'Ikeja',
+                gbagada: 'Gbagada', maryland: 'Maryland', ojota: 'Ojota',
+                ketu: 'Ketu', mile12: 'Mile 12', agege: 'Agege',
+                iyana_ipaja: 'Iyana Ipaja', egbeda: 'Egbeda', ikotun: 'Ikotun',
+                festac: 'Festac', amuwo: 'Amuwo Odofin', berger: 'Berger',
+                abuja: 'Abuja', ibadan: 'Ibadan', ph: 'Port Harcourt',
+                kano: 'Kano', benin: 'Benin', enugu: 'Enugu'
+            }
+        };
+
+        function calculatePrice() {
+            const packageType = document.getElementById('packageType').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const pickupLocation = document.getElementById('pickupLocation').value;
+            const deliveryLocation = document.getElementById('deliveryLocation').value;
+            if (!pickupLocation || !deliveryLocation) {
+                document.getElementById('pricingSection').style.display = 'none';
+                return;
+            }
+            const basePrice = pricingEngine.basePrices[packageType] || 500;
+            const pickupFee = pricingEngine.locationFees[pickupLocation] || 2500;
+            const deliveryFee = pricingEngine.locationFees[deliveryLocation] || 2500;
+            const serviceMultiplier = pricingEngine.serviceMultipliers[serviceType] || 1.0;
+            const serviceFee = Math.round((pickupFee + deliveryFee) * (serviceMultiplier - 1));
+            const locationFee = pickupFee + deliveryFee;
+            const totalAmount = basePrice + locationFee + serviceFee;
+            document.getElementById('basePrice').textContent = '₦' + basePrice.toLocaleString();
+            document.getElementById('locationFee').textContent = '₦' + locationFee.toLocaleString();
+            document.getElementById('serviceFee').textContent = '₦' + serviceFee.toLocaleString();
+            document.getElementById('totalAmount').innerHTML = '<strong>₦' + totalAmount.toLocaleString() + '</strong>';
+            document.getElementById('calculatedPrice').value = totalAmount;
+            document.getElementById('pricingSection').style.display = 'block';
+        }
+
+        // ============================================
+        // TRACKING ID GENERATOR
+        // ============================================
+        function generateTrackingId() {
+            const year = new Date().getFullYear();
+            const random = Math.floor(100000 + Math.random() * 900000);
+            return 'PHO-' + year + '-' + random;
+        }
+
+        // ============================================
+        // BOOKING SUBMISSION WITH TRACKING ID
+        // ============================================
+        function submitBooking(event) {
+            event.preventDefault();
+            const pickupLocation = document.getElementById('pickupLocation').value;
+            const deliveryLocation = document.getElementById('deliveryLocation').value;
+            if (!pickupLocation || !deliveryLocation) {
+                alert('Please select both pickup and delivery locations to calculate pricing.');
+                return;
+            }
+            const trackingId = generateTrackingId();
+            const totalAmount = document.getElementById('calculatedPrice').value;
+            const bookingData = {
+                trackingId: trackingId,
+                senderName: document.getElementById('senderName').value,
+                senderPhone: document.getElementById('senderPhone').value,
+                receiverName: document.getElementById('receiverName').value,
+                receiverPhone: document.getElementById('receiverPhone').value,
+                pickupAddress: document.getElementById('pickupAddress').value,
+                deliveryAddress: document.getElementById('deliveryAddress').value,
+                packageType: document.getElementById('packageType').value,
+                serviceType: document.getElementById('serviceType').value,
+                pickupLocation: pickupLocation,
+                deliveryLocation: deliveryLocation,
+                pickupLocationName: pricingEngine.locationNames[pickupLocation],
+                deliveryLocationName: pricingEngine.locationNames[deliveryLocation],
+                specialInstructions: document.getElementById('specialInstructions').value,
+                totalAmount: totalAmount,
+                status: 'order_placed',
+                bookingDate: new Date().toISOString()
+            };
+            // Add to tracking database
+            trackingDatabase[trackingId] = {
+                customerName: bookingData.senderName,
+                status: 'order_placed',
+                statusLabel: 'Order Placed',
+                lastUpdated: 'Just now',
+                origin: bookingData.pickupLocationName,
+                destination: bookingData.deliveryLocationName,
+                currentLocation: 'Processing',
+                estimatedArrival: 'Calculating...',
+                rider: { name: 'Assigning...', phone: '---', vehicle: '---' },
+                weight: '---',
+                service: document.getElementById('serviceType').options[document.getElementById('serviceType').selectedIndex].text,
+                timeline: [
+                    { label: 'Order Placed', time: new Date().toLocaleString(), completed: true, current: true },
+                    { label: 'Picked Up', time: 'Pending', completed: false },
+                    { label: 'In Transit', time: 'Pending', completed: false },
+                    { label: 'Delivered', time: 'Pending', completed: false }
+                ],
+                history: [
+                    { time: new Date().toLocaleTimeString(), event: 'Booking created via website', location: 'Online Portal' }
+                ]
+            };
+            saveToLocalStorage();
+            let bookings = JSON.parse(localStorage.getItem('phostine_bookings') || '[]');
+            bookings.push(bookingData);
+            localStorage.setItem('phostine_bookings', JSON.stringify(bookings));
+            // Show success modal
+            document.getElementById('trackingIdDisplay').textContent = trackingId;
+            document.getElementById('modalAmount').textContent = '₦' + parseInt(totalAmount).toLocaleString();
+            document.getElementById('successModal').classList.add('active');
+            // Reset form
+            document.getElementById('bookingForm').reset();
+            document.getElementById('pricingSection').style.display = 'none';
+            console.log('Booking Created:', bookingData);
+        }
+
+        // ============================================
+        // MODAL FUNCTIONS
+        // ============================================
+        function copyTrackingId() {
+            const trackingId = document.getElementById('trackingIdDisplay').textContent;
+            navigator.clipboard.writeText(trackingId).then(() => {
+                const copyBtn = document.querySelector('.copy-id-btn');
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy ID';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(() => {
+                const textArea = document.createElement('textarea');
+                textArea.value = trackingId;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                const copyBtn = document.querySelector('.copy-id-btn');
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy ID'; }, 2000);
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        function payNowFromModal() {
+            closeModal();
+            const paySection = document.querySelector('.pay-now-section');
+            if (paySection) {
+                paySection.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => { if (typeof makePayment === 'function') { makePayment(); } }, 500);
+            }
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('successModal');
+            if (event.target === modal) { closeModal(); }
+        };
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') { closeModal(); }
+        });
+
+        // ============================================
+        // TRACKING SYSTEM
+        // ============================================
+        const trackingDatabase = {
+            'PHO-2026-001234': {
+                customerName: 'Chiamaka Abiakwu',
+                status: 'in_transit',
+                statusLabel: 'In Transit',
+                lastUpdated: '5 minutes ago',
+                origin: 'Yaba, Lagos',
+                destination: 'Ikeja, Lagos',
+                currentLocation: 'Ojuelegba, Lagos',
+                estimatedArrival: '35 minutes',
+                rider: { name: 'Emmanuel O.', phone: '0803 456 7890', vehicle: 'Bike - LAG-345-BG' },
+                weight: '2.5kg',
+                service: 'Same-Day Delivery',
+                timeline: [
+                    { label: 'Order Placed', time: 'May 4, 08:30 AM', completed: true },
+                    { label: 'Picked Up', time: 'May 4, 09:15 AM', completed: true },
+                    { label: 'In Transit', time: 'May 4, 10:45 AM', completed: true, current: true },
+                    { label: 'Delivered', time: 'Estimated: 11:20 AM', completed: false }
+                ],
+                history: [
+                    { time: '10:45 AM', event: 'Package left Ojuelegba sorting hub', location: 'Ojuelegba, Lagos' },
+                    { time: '09:15 AM', event: 'Rider picked up package from sender', location: 'Yaba, Lagos' },
+                    { time: '08:30 AM', event: 'Order confirmed and assigned to rider', location: 'System' }
+                ]
+            },
+            'PHO-2026-005678': {
+                customerName: 'Peter Abiakwu',
+                status: 'picked_up',
+                statusLabel: 'Picked Up',
+                lastUpdated: '12 minutes ago',
+                origin: 'Victoria Island, Lagos',
+                destination: 'Lekki Phase 1, Lagos',
+                currentLocation: 'Victoria Island, Lagos',
+                estimatedArrival: '1 hour 15 minutes',
+                rider: { name: 'John K.', phone: '0805 123 4567', vehicle: 'Bike - LAG-892-XY' },
+                weight: '5.0kg',
+                service: 'Express Delivery',
+                timeline: [
+                    { label: 'Order Placed', time: 'May 4, 07:00 AM', completed: true },
+                    { label: 'Picked Up', time: 'May 4, 08:20 AM', completed: true, current: true },
+                    { label: 'In Transit', time: 'Pending', completed: false },
+                    { label: 'Delivered', time: 'Estimated: 09:35 AM', completed: false }
+                ],
+                history: [
+                    { time: '08:20 AM', event: 'Rider picked up package from sender', location: 'Victoria Island, Lagos' },
+                    { time: '07:00 AM', event: 'Order confirmed and assigned to rider', location: 'System' }
+                ]
+            },
+            'PHO-2026-009999': {
+                customerName: 'Adebayo Johnson',
+                status: 'delivered',
+                statusLabel: 'Delivered',
+                lastUpdated: '2 hours ago',
+                origin: 'Ikorodu, Lagos',
+                destination: 'Ajah, Lagos',
+                currentLocation: 'Ajah, Lagos',
+                estimatedArrival: 'Delivered at 09:15 AM',
+                rider: { name: 'Ibrahim S.', phone: '0702 987 6543', vehicle: 'Van - LAG-111-AB' },
+                weight: '12.0kg',
+                service: 'Standard Delivery',
+                timeline: [
+                    { label: 'Order Placed', time: 'May 3, 04:00 PM', completed: true },
+                    { label: 'Picked Up', time: 'May 3, 05:30 PM', completed: true },
+                    { label: 'In Transit', time: 'May 4, 07:00 AM', completed: true },
+                    { label: 'Delivered', time: 'May 4, 09:15 AM', completed: true, current: true }
+                ],
+                history: [
+                    { time: '09:15 AM', event: 'Package delivered - Signed by: Mrs. Johnson', location: 'Ajah, Lagos' },
+                    { time: '07:00 AM', event: 'Package left Ikorodu depot', location: 'Ikorodu, Lagos' },
+                    { time: '05:30 PM', event: 'Rider picked up package from sender', location: 'Ikorodu, Lagos' },
+                    { time: '04:00 PM', event: 'Order confirmed and assigned to rider', location: 'System' }
+                ]
+            }
+        };
+
+        const statusConfig = {
+            'order_placed': { icon: 'fa-clipboard-check', color: '#6c757d', label: 'Order Placed' },
+            'picked_up': { icon: 'fa-box', color: '#ffc107', label: 'Picked Up' },
+            'in_transit': { icon: 'fa-truck-moving', color: '#ff6b35', label: 'In Transit' },
+            'out_for_delivery': { icon: 'fa-motorcycle', color: '#17a2b8', label: 'Out for Delivery' },
+            'delivered': { icon: 'fa-check-circle', color: '#1a936f', label: 'Delivered' },
+            'failed': { icon: 'fa-times-circle', color: '#dc3545', label: 'Delivery Failed' }
+        };
+
+        function saveToLocalStorage() {
+            localStorage.setItem('phostine_tracking_db', JSON.stringify(trackingDatabase));
+        }
+
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('phostine_tracking_db');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                Object.assign(trackingDatabase, parsed);
+            }
+        }
+        loadFromLocalStorage();
+
+        function trackShipment() {
+            const input = document.getElementById('trackingId');
+            const resultDiv = document.getElementById('trackingResult');
+            const trackingId = input.value.trim().toUpperCase();
+            if (trackingId === '') {
+                showTrackingError(resultDiv, 'Please enter a tracking ID');
+                return;
+            }
+            if (!/^PHO-\d{4}-\d{6}$/.test(trackingId)) {
+                showTrackingError(resultDiv, 'Invalid tracking ID format. Use format: PHO-2026-001234');
+                return;
+            }
+            const shipment = trackingDatabase[trackingId];
+            if (!shipment) {
+                showTrackingError(resultDiv, 'Tracking ID <strong>' + trackingId + '</strong> not found. Please check and try again.');
+                return;
+            }
+            renderTrackingResult(resultDiv, shipment, trackingId);
+        }
+
+        function showTrackingError(container, message) {
+            container.innerHTML = '<div style="background:#fff5f5;border-left:5px solid #dc3545;padding:20px;border-radius:10px;margin-top:20px;animation:fadeInUp 0.5s ease;"><p style="color:#dc3545;margin:0;"><i class="fas fa-exclamation-circle"></i> ' + message + '</p></div>';
+            container.classList.add('show');
+        }
+
+        function renderTrackingResult(container, shipment, trackingId) {
+            const status = statusConfig[shipment.status] || statusConfig['in_transit'];
+            const isDelivered = shipment.status === 'delivered';
+            const timelineHTML = shipment.timeline.map((step, index) => `
+                <div class="timeline-item">
+                    <div class="timeline-dot ${step.completed ? 'active' : ''} ${step.current ? 'current' : ''}"></div>
+                    <p style="font-weight:${step.current ? '700' : '400'};color:${step.completed ? '#333' : '#999'};">${step.label}</p>
+                    <small style="color:#999;font-size:11px;">${step.time}</small>
+                </div>
+            `).join('');
+            const historyHTML = shipment.history.map(event => `
+                <div style="display:flex;gap:15px;padding:12px 0;border-bottom:1px solid #f0f0f0;">
+                    <div style="min-width:80px;color:#999;font-size:13px;">${event.time}</div>
+                    <div><p style="margin:0;color:#333;font-size:14px;">${event.event}</p><small style="color:#999;"><i class="fas fa-map-marker-alt"></i> ${event.location}</small></div>
+                </div>
+            `).join('');
+            container.innerHTML = `
+                <div style="animation:fadeInUp 0.5s ease;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
+                        <div><h4 style="color:var(--dark);margin-bottom:5px;font-size:18px;">Tracking ID: ${trackingId}</h4><p style="color:#666;font-size:14px;">Customer: ${shipment.customerName}</p></div>
+                        <div style="background:${status.color}15;color:${status.color};padding:8px 20px;border-radius:20px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;"><i class="fas ${status.icon}"></i> ${shipment.statusLabel}</div>
+                    </div>
+                    <div class="tracking-status" style="background:#f8f9fa;padding:20px;border-radius:15px;margin-bottom:25px;">
+                        <div class="status-icon" style="background:${status.color};"><i class="fas ${isDelivered ? 'fa-check' : 'fa-truck'}"></i></div>
+                        <div style="flex:1;"><h4 style="color:var(--dark);margin-bottom:5px;">${isDelivered ? 'Delivery Completed' : 'Shipment ' + shipment.statusLabel}</h4><p style="color:#666;font-size:14px;">Last updated: ${shipment.lastUpdated}</p></div>
+                    </div>
+                    <div class="tracking-timeline" style="margin-bottom:30px;">${timelineHTML}</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:15px;margin-bottom:25px;">
+                        <div style="background:#fff;padding:15px;border-radius:10px;border:1px solid #e0e0e0;"><p style="color:#999;font-size:12px;margin-bottom:5px;">FROM</p><p style="color:var(--dark);font-weight:600;font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> ${shipment.origin}</p></div>
+                        <div style="background:#fff;padding:15px;border-radius:10px;border:1px solid #e0e0e0;"><p style="color:#999;font-size:12px;margin-bottom:5px;">TO</p><p style="color:var(--dark);font-weight:600;font-size:14px;"><i class="fas fa-flag-checkered" style="color:var(--accent);"></i> ${shipment.destination}</p></div>
+                        <div style="background:#fff;padding:15px;border-radius:10px;border:1px solid #e0e0e0;"><p style="color:#999;font-size:12px;margin-bottom:5px;">CURRENT LOCATION</p><p style="color:var(--dark);font-weight:600;font-size:14px;"><i class="fas fa-crosshairs" style="color:#17a2b8;"></i> ${shipment.currentLocation}</p></div>
+                        <div style="background:#fff;padding:15px;border-radius:10px;border:1px solid #e0e0e0;"><p style="color:#999;font-size:12px;margin-bottom:5px;">EST. ARRIVAL</p><p style="color:var(--dark);font-weight:600;font-size:14px;"><i class="fas fa-clock" style="color:var(--primary);"></i> ${shipment.estimatedArrival}</p></div>
+                    </div>
+                    <div style="background:linear-gradient(135deg, #fff5f0 0%, #fff 100%);padding:20px;border-radius:15px;margin-bottom:25px;border:1px solid #ffe0d0;">
+                        <h4 style="color:var(--dark);margin-bottom:15px;font-size:16px;"><i class="fas fa-user-circle" style="color:var(--primary);"></i> Rider Information</h4>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:15px;">
+                            <div><p style="color:#999;font-size:12px;margin-bottom:3px;">NAME</p><p style="color:var(--dark);font-weight:600;">${shipment.rider.name}</p></div>
+                            <div><p style="color:#999;font-size:12px;margin-bottom:3px;">PHONE</p><p style="color:var(--dark);font-weight:600;"><a href="tel:${shipment.rider.phone}" style="color:var(--primary);text-decoration:none;">${shipment.rider.phone}</a></p></div>
+                            <div><p style="color:#999;font-size:12px;margin-bottom:3px;">VEHICLE</p><p style="color:var(--dark);font-weight:600;">${shipment.rider.vehicle}</p></div>
+                        </div>
+                    </div>
+                    <div style="background:#f0f8ff;padding:15px;border-radius:10px;margin-bottom:25px;display:flex;gap:20px;flex-wrap:wrap;">
+                        <span style="font-size:13px;color:#666;"><i class="fas fa-weight-hanging" style="color:#666;"></i> Weight: <strong>${shipment.weight}</strong></span>
+                        <span style="font-size:13px;color:#666;"><i class="fas fa-shipping-fast" style="color:#666;"></i> Service: <strong>${shipment.service}</strong></span>
+                    </div>
+                    <div style="background:#fff;padding:20px;border-radius:15px;border:1px solid #e0e0e0;">
+                        <h4 style="color:var(--dark);margin-bottom:15px;font-size:16px;"><i class="fas fa-history" style="color:var(--primary);"></i> Shipment History</h4>
+                        ${historyHTML}
+                    </div>
+                </div>
+            `;
+            container.classList.add('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const trackingInput = document.getElementById('trackingId');
+            if (trackingInput) {
+                trackingInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') { trackShipment(); }
+                });
+            }
+        });
+    </script>
+
+    <!-- FLUTTERWAVE PAYMENT -->
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+    <script>
+        function makePayment() {
+            const customerEmail = prompt("Enter your email address:", "customer@example.com");
+            if (!customerEmail || customerEmail.trim() === "") { alert("Email is required to proceed with payment."); return; }
+            const customerPhone = prompt("Enter your phone number:", "08012345678");
+            const customerName = prompt("Enter your full name:", "John Doe");
+            const deliveryAmount = prompt("Enter delivery amount (₦):", "5000");
+            const amount = parseFloat(deliveryAmount) || 5000;
+            const txRef = 'PHO-' + Date.now();
+            FlutterwaveCheckout({
+                public_key: "FLWPUBK-6bfc9055b915f803e5c22dae48a85ac8-X",
+                tx_ref: txRef,
+                amount: amount,
+                currency: "NGN",
+                payment_options: "card, banktransfer, ussd, mpesa, mobilemoneyghana",
+                redirect_url: "payment-success.html",
+                meta: {
+                    consumer_id: txRef,
+                    consumer_mac: "phostine_logistic_payment",
+                    custom_fields: [
+                        { display_name: "Service Type", variable_name: "service_type", value: "Delivery Payment" },
+                        { display_name: "Company", variable_name: "company", value: "PHOSTINE ECOMMERCE LTD" }
+                    ]
+                },
+                customer: { email: customerEmail, phone_number: customerPhone, name: customerName },
+                customizations: { title: "PHOSTINE LOGISTIC", description: "Payment for delivery service", logo: "https://phostinelogistics.com/wp-content/uploads/2024/05/logo_1_used.png" },
+                callback: function (data) {
+                    console.log("Payment callback:", data);
+                    if (data.status === "successful") {
+                        alert("Payment Successful!\n\nTransaction ID: " + data.transaction_id + "\nAmount: ₦" + data.amount + "\n\nThank you for choosing PHOSTINE ECOMMERCE LTD!");
+                    } else {
+                        alert("Payment was not completed. Please try again.");
+                    }
+                },
+                onclose: function () { console.log("Payment modal closed"); }
+            });
+        }
+    </script>
+</body>
+
+</html>
